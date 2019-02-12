@@ -41,10 +41,10 @@ httpsServer.listen(config.httpsPort, () => {
 
 // Defining a router request
 let router = {
-    'ifs': handlers.ifs,
-    'operational': handlers.operational,
-    'token': handlers.token,
-    'user': handlers.user
+    'api/ifs': handlers.ifs,
+    'api/operational': handlers.operational,
+    'api/token': handlers.token,
+    'api/user': handlers.user
 }
 
 // server which will handle both http and https
@@ -90,6 +90,7 @@ let commonServer = (req, res) => {
             payload = typeof (payload) == 'object' ? payload : {};
             let payloadString = JSON.stringify(payload);
             res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader("Access-Control-Allow-Methods", "DELETE, POST, GET, PUT");
             res.setHeader('Content-Type', 'application/json');
             res.writeHead(statusCode);
             res.end(payloadString);
