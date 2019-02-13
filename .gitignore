@@ -1,4 +1,4 @@
 .data/token/*
 .vscode
-.data/ifs/ifs.json
+.data/ifs/*
 .data/operational/operational.json
